@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Council — Tallyhand Q3 Growth Plan</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #fafaf9;
+    --surface-2: #f5f5f4;
+    --text: #1c1917;
+    --text-muted: #78716c;
+    --border: #e7e5e4;
+    --border-strong: #d6d3d1;
+    --accent: #1c1917;
+    --go: #15803d;
+    --go-bg: #f0fdf4;
+    --changes: #a16207;
+    --changes-bg: #fefce8;
+    --rework: #c2410c;
+    --rework-bg: #fff7ed;
+    --kill: #b91c1c;
+    --kill-bg: #fef2f2;
+    --bar-low: #dc2626;
+    --bar-mid: #d97706;
+    --bar-good: #65a30d;
+    --bar-high: #16a34a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1917;
+      --surface: #262322;
+      --surface-2: #2d2a28;
+      --text: #f5f5f4;
+      --text-muted: #a8a29e;
+      --border: #3f3a37;
+      --border-strong: #57504b;
+      --accent: #f5f5f4;
+      --go: #4ade80;
+      --go-bg: #14261a;
+      --changes: #fcd34d;
+      --changes-bg: #292010;
+      --rework: #fb923c;
+      --rework-bg: #2b1a0e;
+      --kill: #f87171;
+      --kill-bg: #2b1414;
+      --bar-low: #ef4444;
+      --bar-mid: #f59e0b;
+      --bar-good: #84cc16;
+      --bar-high: #22c55e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 24px 96px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+
+  /* ---- masthead ---- */
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--text-muted); margin: 0 0 10px;
+  }
+  h1 {
+    font-size: 30px; line-height: 1.22; font-weight: 650;
+    letter-spacing: -.02em; margin: 0 0 12px;
+  }
+  .dateline { color: var(--text-muted); font-size: 14px; margin: 0 0 40px; }
+
+  /* ---- generic section ---- */
+  section { margin: 0 0 40px; }
+  h2 {
+    font-size: 12px; font-weight: 650; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin: 0 0 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 16px; font-weight: 620; margin: 24px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 20px; }
+  li { margin-bottom: 7px; }
+  .muted { color: var(--text-muted); }
+
+  /* ---- verdict banner ---- */
+  .verdict {
+    border: 1px solid var(--border-strong); border-left-width: 4px;
+    border-radius: 8px; padding: 24px 26px; margin: 0 0 40px;
+  }
+  .verdict-label {
+    font-size: 11px; font-weight: 650; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px;
+  }
+  .verdict-value {
+    font-size: 27px; font-weight: 680; letter-spacing: -.02em; margin: 0 0 12px;
+  }
+  .verdict p { margin: 0; font-size: 15px; }
+  .verdict-go     { background: var(--go-bg);      border-left-color: var(--go); }
+  .verdict-go .verdict-value { color: var(--go); }
+  .verdict-changes{ background: var(--changes-bg); border-left-color: var(--changes); }
+  .verdict-changes .verdict-value { color: var(--changes); }
+  .verdict-rework { background: var(--rework-bg);  border-left-color: var(--rework); }
+  .verdict-rework .verdict-value { color: var(--rework); }
+  .verdict-kill   { background: var(--kill-bg);    border-left-color: var(--kill); }
+  .verdict-kill .verdict-value { color: var(--kill); }
+
+  /* ---- scorecard ---- */
+  .score-row {
+    display: grid; grid-template-columns: 170px 1fr 34px;
+    align-items: center; gap: 14px; margin-bottom: 11px;
+  }
+  .score-name { font-size: 14px; font-weight: 550; }
+  .track {
+    height: 9px; background: var(--surface-2); border-radius: 5px;
+    overflow: hidden;
+  }
+  .bar { display: block; height: 100%; border-radius: 5px; }
+  .bar-low  { background: var(--bar-low); }
+  .bar-mid  { background: var(--bar-mid); }
+  .bar-good { background: var(--bar-good); }
+  .bar-high { background: var(--bar-high); }
+  .score-num {
+    font-size: 14px; font-weight: 640; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .composite {
+    margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 14px;
+  }
+  .composite strong { font-size: 20px; font-weight: 660; }
+
+  /* ---- brand / performance split ---- */
+  .split { margin-top: 8px; }
+  .split-track {
+    position: relative; height: 34px; border-radius: 8px;
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 45%, #ec4899 100%);
+    opacity: .85;
+  }
+  .split-marker {
+    position: absolute; top: -6px; bottom: -6px; width: 3px;
+    background: var(--text); border-radius: 2px;
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+  .split-ends {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--text-muted); margin-top: 9px;
+  }
+
+  /* ---- agree / clash ---- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 20px; margin-bottom: 14px;
+  }
+  .card h3 { margin-top: 0; }
+  .who {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    letter-spacing: .04em; color: var(--text-muted);
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 20px; padding: 3px 10px; margin: 0 5px 5px 0;
+  }
+  .clash { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .clash > div {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 18px;
+  }
+  .clash-vs {
+    text-align: center; font-size: 11px; font-weight: 650;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--text-muted); margin: 2px 0 10px;
+  }
+
+  /* ---- ranked changes ---- */
+  ol.changes { list-style: none; counter-reset: c; padding: 0; margin: 0; }
+  ol.changes li {
+    counter-increment: c; position: relative;
+    padding: 16px 20px 16px 56px; margin-bottom: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  ol.changes li::before {
+    content: counter(c); position: absolute; left: 18px; top: 15px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--accent); color: var(--bg);
+    font-size: 13px; font-weight: 660;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ---- monday ---- */
+  .monday {
+    border: 2px solid var(--accent); border-radius: 8px;
+    padding: 24px 26px; background: var(--surface);
+  }
+  .monday .verdict-label { margin-bottom: 10px; }
+  .monday p { font-size: 18px; font-weight: 560; margin: 0; line-height: 1.5; }
+
+  /* ---- collapsibles ---- */
+  details {
+    border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 10px; background: var(--surface); overflow: hidden;
+  }
+  summary {
+    cursor: pointer; padding: 14px 18px; font-size: 14px; font-weight: 580;
+    list-style: none; display: flex; align-items: center;
+    justify-content: space-between; gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; color: var(--text-muted); font-size: 17px;
+    font-weight: 400; flex-shrink: 0;
+  }
+  details[open] summary::after { content: "\2212"; }
+  details[open] summary { border-bottom: 1px solid var(--border); }
+  .details-body { padding: 18px; font-size: 15px; }
+  .details-body pre {
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 14px; overflow-x: auto;
+    font-size: 13px; line-height: 1.6; white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  .summary-score {
+    margin-left: auto; margin-right: 4px; font-variant-numeric: tabular-nums;
+    color: var(--text-muted); font-weight: 640;
+  }
+
+  /* ---- intake table ---- */
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td {
+    text-align: left; padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .07em;
+    color: var(--text-muted); font-weight: 650;
+  }
+  .tag {
+    font-size: 11px; font-weight: 650; letter-spacing: .04em;
+    padding: 2px 8px; border-radius: 4px; white-space: nowrap;
+  }
+  .tag-present { background: var(--go-bg); color: var(--go); }
+  .tag-vague   { background: var(--changes-bg); color: var(--changes); }
+  .tag-missing { background: var(--kill-bg); color: var(--kill); }
+
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 32px 16px 64px; }
+    h1 { font-size: 24px; }
+    .score-row { grid-template-columns: 116px 1fr 30px; gap: 10px; }
+    .clash { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Marketing Council</p>
+  <h1>Tallyhand &mdash; Q3 Growth Plan</h1>
+  <p class="dateline">16 September 2026 &middot; Six advisors &middot; Blind peer review &middot; CMO synthesis</p>
+
+  <div class="verdict verdict-rework">
+    <p class="verdict-label">The Verdict</p>
+    <p class="verdict-value">REWORK</p>
+    <p>Success metrics were named but untargeted, and none connect to the paying-user objective &mdash;
+    the measurement gate caps the verdict here regardless of everything else. Five of six advisors
+    reached that independently without knowing a gate existed. The Performance Marketer's arithmetic
+    is the strongest single objection in the room and all six peer reviewers ranked it first without
+    coordination: the plan loses money per acquired customer at any creative quality. This is not a
+    KILL &mdash; 180 word-of-mouth users in one niche and a fully-specified offer are real assets.
+    The plan is recoverable; the document as submitted is not.</p>
+  </div>
+
+  <section>
+    <h2>0 &middot; Intake Gaps</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Component</th><th>Status</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Objective</td><td><span class="tag tag-present">PRESENT</span></td><td>1,000 paying users by 30 September. Specific and dated.</td></tr>
+          <tr><td>Target audience</td><td><span class="tag tag-vague">VAGUE</span></td><td>A demographic bracket, not a market. Contradicts the product's stated focus on freelance designers.</td></tr>
+          <tr><td>Positioning</td><td><span class="tag tag-vague">VAGUE</span></td><td>Built entirely from comparatives. Category-generic.</td></tr>
+          <tr><td>Offer</td><td><span class="tag tag-present">PRESENT</span></td><td>$12/mo, 14-day no-card trial, $110/yr annual.</td></tr>
+          <tr><td>Channels</td><td><span class="tag tag-present">PRESENT</span></td><td>Four named channels with per-channel spend.</td></tr>
+          <tr><td>Budget</td><td><span class="tag tag-present">PRESENT</span></td><td>$40,000, allocated.</td></tr>
+          <tr><td>Timeline</td><td><span class="tag tag-present">PRESENT</span></td><td>Three phased months with named activity.</td></tr>
+          <tr><td>Success metrics</td><td><span class="tag tag-vague">VAGUE</span></td><td>Named without targets. None connect to the paying-user objective. <strong>Triggers the measurement gate.</strong></td></tr>
+          <tr><td>Owner / capacity</td><td><span class="tag tag-present">PRESENT</span></td><td>One full-time marketer, one designer at ~50%.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>1 &middot; Plan Health Scorecard</h2>
+    <div class="score-row">
+      <span class="score-name">Brand Strategist</span>
+      <span class="track"><span class="bar bar-low" style="width:30%"></span></span>
+      <span class="score-num">3</span>
+    </div>
+    <div class="score-row">
+      <span class="score-name">Performance Marketer</span>
+      <span class="track"><span class="bar bar-low" style="width:20%"></span></span>
+      <span class="score-num">2</span>
+    </div>
+    <div class="score-row">
+      <span class="score-name">Customer</span>
+      <span class="track"><span class="bar bar-low" style="width:30%"></span></span>
+      <span class="score-num">3</span>
+    </div>
+    <div class="score-row">
+      <span class="score-name">Rival</span>
+      <span class="track"><span class="bar bar-low" style="width:30%"></span></span>
+      <span class="score-num">3</span>
+    </div>
+    <div class="score-row">
+      <span class="score-name">Creative Director</span>
+      <span class="track"><span class="bar bar-low" style="width:20%"></span></span>
+      <span class="score-num">2</span>
+    </div>
+    <div class="score-row">
+      <span class="score-name">Operator</span>
+      <span class="track"><span class="bar bar-low" style="width:30%"></span></span>
+      <span class="score-num">3</span>
+    </div>
+    <div class="composite">
+      <span>Composite &middot; spread 1 point</span>
+      <strong>2.67 / 10</strong>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px">A 1-point spread is as tight as this council
+    gets. Six advisors with structurally opposed mandates landed within one point of each other. This is
+    not a plan that is strong on some dimensions and broken on others &mdash; it fails on every dimension
+    each seat was built to test.</p>
+  </section>
+
+  <section>
+    <h2>2 &middot; Where the Council Agrees</h2>
+    <div class="card">
+      <h3>The audience definition contradicts the product</h3>
+      <p><span class="who">Brand Strategist</span><span class="who">Creative Director</span><span class="who">The Customer</span><span class="who">The Rival</span><span class="who">Performance Marketer</span></p>
+      <p>Background says freelance designers; targeting says "freelancers and small business owners,
+      25&ndash;45." Five seats with nothing in common found the same defect, and the Creative Director
+      named it as the <em>cause</em> of the generic creative: you cannot make something sharp for a
+      demographic bracket.</p>
+    </div>
+    <div class="card">
+      <h3>The success metrics cannot detect failure</h3>
+      <p><span class="who">Brand Strategist</span><span class="who">Performance Marketer</span><span class="who">Creative Director</span><span class="who">The Rival</span><span class="who">The Operator</span></p>
+      <p>Five framings, one conclusion. The Rival put it most sharply: the dashboard can look healthy all
+      quarter while a competitor takes the revenue, and they find out in October. This convergence is why
+      the measurement gate is active.</p>
+    </div>
+    <div class="card">
+      <h3>The 180 word-of-mouth users are the one real asset &mdash; and nobody funded them</h3>
+      <p><span class="who">The Rival</span><span class="who">Brand Strategist</span></p>
+      <p>Named explicitly by two advisors as the only thing a competitor cannot buy. Not one advisor
+      proposed spending a dollar on them. That gap became the dominant peer-review finding.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3 &middot; Where the Council Clashes</h2>
+
+    <h3>Is the problem the message, or is the message irrelevant?</h3>
+    <div class="clash">
+      <div>
+        <p class="who">Creative Director</p>
+        <p>The fatal flaw is that nothing here would make anyone stop scrolling. Showing a screenshot of
+        a form to people who make screenshots of forms for a living is a self-inflicted wound. Build the
+        campaign around an idea.</p>
+      </div>
+      <div>
+        <p class="who">Performance Marketer</p>
+        <p>The target is unreachable at any creative quality. $48 CPA against ~$70 contribution, payback
+        at month 4.1, 40% gone by month 3. Better creative moves conversion within a range, and no point
+        in that range fixes this.</p>
+      </div>
+    </div>
+    <p class="muted">All six reviewers ranked the Performance Marketer first and named the Creative
+    Director's response the biggest blind spot &mdash; on exactly this ground. But note what they did
+    <em>not</em> say: none called the diagnosis wrong. Every one said the diagnosis was correct and the
+    prescription unaffordable. That distinction survives into change 3.</p>
+
+    <h3>Is the podcast the best money in the plan, or the worst?</h3>
+    <div class="clash">
+      <div>
+        <p class="who">Creative Director + Brand Strategist</p>
+        <p>The strongest element &mdash; the only repeated exposure to a coherent audience where a
+        distinctive brand association could form.</p>
+      </div>
+      <div>
+        <p class="who">Performance Marketer + The Rival</p>
+        <p>A $222 CPA, nearly unmeasurable, 25% of budget committed to one month &mdash; and a competitor
+        can buy the episodes either side for $2,500 and turn it into a warm-up act.</p>
+      </div>
+    </div>
+    <p class="muted">Not resolvable from the document: it gives no read on the show's size or the host's
+    relationship to the audience. Reviewer 4 was the only reviewer who defunded it.</p>
+  </section>
+
+  <section>
+    <h2>4 &middot; Blind Spots Peer Review Caught</h2>
+    <div class="card">
+      <h3>Retention is the lever, not acquisition</h3>
+      <p><strong>Four of six reviewers, independently.</strong> Every advisor treated 60% month-three
+      retention as an input or a kill criterion; none treated it as the work. Fixing churn to 8% roughly
+      doubles LTV and makes the same CPA survivable. Reviewer 4 sharpened it to the cohort nobody
+      mentioned at all &mdash; the 40% who already left. This is the single most valuable thing round two
+      produced, and it emerged four times from reviewers who could not see each other's work.</p>
+    </div>
+    <div class="card">
+      <h3>The $12 price went entirely unchallenged</h3>
+      <p><strong>Reviewers 1 and 2, independently.</strong> "F proves LTV is the binding constraint, then
+      fixes CPA instead." A designer-specific tool at $29/month roughly triples LTV and repairs the
+      payback math without acquiring a single additional user. Three advisors built the case for a price
+      increase and none of them proposed one.</p>
+    </div>
+    <div class="card">
+      <h3>The objective itself may be the defect</h3>
+      <p><strong>Five of six reviewers.</strong> All six advisors accepted "1,000 paying users by 30
+      September" as fixed. It is a vanity number with no revenue attached. Would the founders accept 450
+      users at positive payback? A retention-first quarter reaching 500 users who stay is worth more than
+      1,000 who leak.</p>
+    </div>
+    <div class="card">
+      <h3>Convergence on the reallocation</h3>
+      <p>Five of six reviewers defunded the same line &mdash; $8,000 out of Content and SEO, on the
+      finding that 26 blog posts cannot rank inside 13 weeks. Reviewer 4 dissented and took it from the
+      podcast. Every one of the six put the majority of the recovered money into retention, onboarding or
+      referral to the existing base, and every one funded measurement and brand-term defence. Six
+      independent allocations, one shape.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>5 &middot; The Brand / Performance Split</h2>
+    <div class="split">
+      <div class="split-track"><span class="split-marker" style="left:75%"></span></div>
+      <div class="split-ends"><span>100% brand building</span><span>100% activation</span></div>
+    </div>
+    <p style="margin-top:16px">Roughly <strong>75% activation / 25% equity</strong> &mdash; and the 25% is
+    not really equity. $22,000 of paid social and search is direct response. The $8,000 of content is
+    booked as an equity asset but builds the <em>category's</em> mental availability, not Tallyhand's, and
+    returns zero Q3 users. It is neither. The podcast is the only genuine equity spend, and even that is
+    latent.</p>
+    <p class="muted">The placement is <strong>accidental</strong>. A deliberate 75/25 is defensible for a
+    13-week revenue quarter &mdash; but the equity half is built from comparative positioning, and the
+    activation half has no CPA, no conversion assumption and no kill threshold. Neither half was built to
+    its own standard. The split is what fell out of dividing $40,000 across four channels that sounded
+    reasonable.</p>
+  </section>
+
+  <section>
+    <h2>7 &middot; The Three Changes That Matter Most</h2>
+    <ol class="changes">
+      <li><strong>Replace the metrics section with a weekly CPA-and-payback dashboard, and set a $35
+      blended CPA kill threshold before any money moves.</strong><br>
+      <span class="muted">Raised by the Performance Marketer and the Operator</span>
+      <p>Release $6,000 as a July test across two channels; release the remaining $34,000 only if measured
+      CPA clears the threshold. First because it is the measurement gate's own requirement, and because
+      every change below is unverifiable without it.</p></li>
+
+      <li><strong>Move $8,000 out of Content and SEO into retention, onboarding and the existing
+      base.</strong><br>
+      <span class="muted">Raised by Reviewers 2, 3, 5 and 6 independently</span>
+      <p>Spreadsheet import, first-invoice activation, dunning, win-back on the churned cohort, and a
+      referral mechanism into the designer network that produced all 180 users. Second because doubling
+      LTV via retention makes the current CPA survivable, where no channel optimisation does. Reviewer 4
+      dissents on the source &mdash; take it from the podcast &mdash; and that dissent is live.</p></li>
+
+      <li><strong>Narrow the audience to freelance designers, price to that niche, and make one claim not
+      built from comparatives.</strong><br>
+      <span class="muted">Raised by the Brand Strategist, the Rival, the Customer and the Creative
+      Director; the price test by Reviewers 1 and 2</span>
+      <p>Test $29/month against $12. Validate with Reviewer 4's proposal: 15 paid interviews with current
+      and churned users, which answers the positioning question, the Customer's "is anyone actually
+      annoyed" question, and the LTV input at once.</p></li>
+    </ol>
+    <p class="muted">Explicitly not carried forward: the Creative Director's public-data artifact. All six
+    reviewers named it the biggest blind spot in the room. The diagnosis behind it stands and survives into
+    change 3; the artifact does not &mdash; 180 accounts cannot produce credible aggregate data, 1.5 people
+    cannot build it, and it carries a consent liability the response waved at rather than costed.</p>
+  </section>
+
+  <section>
+    <div class="monday">
+      <p class="verdict-label">The One Thing to Do Monday</p>
+      <p>Open a spreadsheet and list every one of the 180 paying users and every customer who has churned
+      since February, with signup date, last-invoice-sent date, and whether they are a designer. You will
+      know by lunch what the real retention curve is, what fraction of the base is the niche, and who to
+      call first.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Advisor Responses in Full</h2>
+    <details class="advisor">
+      <summary>The Brand Strategist <span class="summary-score">3/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 3 - The positioning is category wallpaper, the audience is a demographic bracket that contradicts the product, and nothing in this $40,000 plan builds an asset Tallyhand still owns on 1 October.
+STRONGEST ELEMENT: The podcast sponsorship - the one place a distinctive brand association could form, if there were anything distinctive to associate.
+FATAL FLAW: "The trusted invoicing partner for modern freelancers" is a sentence any of forty competitors could paste their logo onto without a single word looking wrong.
+KILL CRITERIA: If the founders cannot say, without the words trusted, simple or professional, what Tallyhand is for that a designer would repeat to another designer.
+THE FIX: Narrow to freelance designers and anchor to a specific ownable job, then repeat one line and one look for thirteen weeks.</pre>
+        <p>The plan contains two different audiences and never reconciles them. The positioning line is constructed entirely from comparatives - simpler than enterprise, more professional than a spreadsheet - which defines a gap in a category, not a brand. The real cost is not this quarter: 180 users came from founder word-of-mouth, meaning something here is already repeatable in a specific community, and the plan abandons that signal for a generic message aimed at everyone.</p>
+      </div>
+    </details>
+    <details class="advisor">
+      <summary>The Performance Marketer <span class="summary-score">2/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 2 - $40,000 against a 5.5x user target with no CPA, no conversion assumptions, and no revenue metric anywhere in its success criteria.
+STRONGEST ELEMENT: The offer is priced clearly enough to compute against, and the $110 annual plan is a legitimate payback-compression lever.
+FATAL FLAW: ~820 net new users from $40,000 is a blended CPA of $48.80 against an LTV of about $30 - every acquired customer loses money, and no line in the plan acknowledges it.
+KILL CRITERIA: If 60% month-three retention is accurate and cannot be moved before spend starts.
+THE FIX: Replace the metrics section with a weekly CPA-and-payback dashboard, set a $35 blended CPA kill threshold, and release only $6,000 in July.</pre>
+        <p>Netting churn against the stated 60% retention puts the real requirement nearer 890 gross additions, so $40,000 / 890 = $44.90 CPA before Q3 churn. At ~15% monthly churn the average life is 6.7 months - about $70 contribution - so payback lands at month 4.1 while 40% of customers are gone by month 3. Channel-level it is worse: search at $5 CPC and realistic trial-to-paid implies roughly $667 per customer, and 26 blog posts cannot rank inside 13 weeks, so $8,000 returns zero Q3 users.</p>
+      </div>
+    </details>
+    <details class="advisor">
+      <summary>The Customer <span class="summary-score">3/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 3 - Nothing here would make me stop scrolling, and nothing tells me why I should pay $12 a month when my spreadsheet is free and already works.
+STRONGEST ELEMENT: The trial. Fourteen days, no card - the only part I understood on first read.
+FATAL FLAW: The plan assumes I have a problem I am shopping for. I am not.
+KILL CRITERIA: If people like me would shrug and say invoicing is fine, this is $40,000 to interrupt people who are content.
+THE FIX: Lead with the specific embarrassing moment - chasing a client for money 40 days late - instead of the product.</pre>
+        <p>A carousel appears showing screens of some software. The name tells me nothing. "Simpler than the enterprise accounting suites" means nothing to someone who has never used one. "Trusted" by whom? They have 180 users, and they are asking for the part of my business where money comes in. Nothing says what happens when I sign up, whether my existing invoices come across, or how long setup takes.</p>
+      </div>
+    </details>
+    <details class="advisor">
+      <summary>The Rival <span class="summary-score">3/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 3 - Nothing here is structurally defensible; I can copy the positioning by Friday and brand-bid their name for pennies.
+STRONGEST ELEMENT: 180 word-of-mouth users concentrated in one niche - the one asset I cannot buy. And the annual plan, which takes a customer off my board for twelve months.
+FATAL FLAW: The core claim is on four of my competitors' homepages already and costs me nothing to match.
+KILL CRITERIA: If they cannot name one capability a funded competitor could not ship in 90 days.
+THE FIX: Own the designer wedge with something niche-specific I would not bother copying - revision-round billing, deposit-then-milestone, scope-creep capture.</pre>
+        <p>Week one, $1,500: I brand-bid Tallyhand and stand up a comparison page. They have no brand-defense line item, so I buy their name at $0.40 while they pay $9 for the head term. Week two, $2,000: I copy the no-card trial and publish a free tier. August, $2,500: I buy the episodes on either side of their podcast flight. Total: about $6,000 against their $40,000 - and their metrics section means they find out in October.</p>
+      </div>
+    </details>
+    <details class="advisor">
+      <summary>The Creative Director <span class="summary-score">2/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 2 - A competent media buying schedule with no idea in it anywhere.
+STRONGEST ELEMENT: The podcast is the only line item with a chance of producing something memorable - but nothing says what the ad would say, so even this is only latent.
+FATAL FLAW: "Carousel ads showing the invoice builder" is the creative strategy for a product whose users are professional designers. You are showing a screenshot of a form to people who make screenshots of forms for a living.
+KILL CRITERIA: If nobody is assigned to have an idea, the $40k buys distribution for nothing.
+THE FIX: Make the unpaid invoice the subject, not the invoice builder.</pre>
+        <p>The braver version: a public artifact - a running, anonymised tally of how long freelance invoices actually go unpaid. That is a thing designers screenshot, a thing the podcast host reads out unprompted, and a thing that earns links instead of buying them. What it risks: it is a bet on one concept instead of four hedged channels. <em>The peer round unanimously rejected this prescription while accepting the diagnosis - see section 3.</em></p>
+      </div>
+    </details>
+    <details class="advisor">
+      <summary>The Operator <span class="summary-score">3/10</span></summary>
+      <div class="details-body">
+        <pre>SCORE: 3 - As a production schedule it is unbuildable: 1.5 people running four channels from a cold start with no asset count and no defined first week.
+STRONGEST ELEMENT: The channel-to-month sequencing is staged rather than all-at-once, and the offer is fully specified, so a landing page could be built Monday.
+FATAL FLAW: July alone needs roughly 50+ discrete assets against ~10 working days of design capacity, with one marketer acting as media buyer, copywriter, blog editor, analyst and podcast negotiator simultaneously.
+KILL CRITERIA: If the designer's 50% is not ring-fenced from product UI work.
+THE FIX: Cut July to Google Search only and spend week one on measurement and landing infrastructure.</pre>
+        <p>Week one, concretely: Monday, stand up conversion tracking and define what a paying-user event is, because the metrics section contains no revenue number; Tuesday to Wednesday, one landing page plus five search ad variants; Thursday, keyword list and account build; Friday, live. The fourteen-day version is search ads against one page with trial-to-paid instrumented, producing a baseline CAC. Everything else waits for that number.</p>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <h2>Peer Review Round</h2>
+    <p class="muted" style="font-size:14px">
+      Responses were anonymised as A&ndash;F with a randomised mapping before review. Mapping revealed in
+      the transcript. All six reviewers independently named the same response strongest and the same
+      response the biggest blind spot.
+    </p>
+    <details class="review">
+      <summary>Reviewer 1</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> The price. Nobody questioned $12/month, which is what makes LTV too small to survive any CPA.</p>
+        <p><strong>Budget reallocation:</strong> $6k from content, $2k from podcast &rarr; onboarding and a price test, a referral engine for the 180, brand-term defence.</p>
+      </div>
+    </details>
+    <details class="review">
+      <summary>Reviewer 2</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> The price, again - LTV is the binding constraint and F fixed CPA instead.</p>
+        <p><strong>Budget reallocation:</strong> Full $8,000 from Content and SEO &rarr; activation, referral, instrumentation, a $29 price test.</p>
+      </div>
+    </details>
+    <details class="review">
+      <summary>Reviewer 3</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> The 180 existing users and 60% retention were treated as context, never as the channel.</p>
+        <p><strong>Budget reallocation:</strong> $8,000 from content &rarr; $5,000 retention and activation, $3,000 brand defence and referral.</p>
+      </div>
+    </details>
+    <details class="review">
+      <summary>Reviewer 4</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> The 40% who already left. The lapsed cohort is a free research panel that answers three advisors' questions at once.</p>
+        <p><strong>Budget reallocation:</strong> $8,000 from the <em>podcast</em> &rarr; retention, brand-term defence, 15 paid user interviews, measurement. <em>The lone dissent on where the money comes from.</em></p>
+      </div>
+    </details>
+    <details class="review">
+      <summary>Reviewer 5</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> Nobody questioned acquisition as the lever at all. Fixing retention 60% &rarr; 80% roughly doubles LTV.</p>
+        <p><strong>Budget reallocation:</strong> $8,000 from content &rarr; $5,000 onboarding and retention, $3,000 referral and case studies.</p>
+      </div>
+    </details>
+    <details class="review">
+      <summary>Reviewer 6</summary>
+      <div class="details-body">
+        <p><strong>Strongest:</strong> F - the Performance Marketer</p>
+        <p><strong>Biggest blind spot:</strong> A - the Creative Director</p>
+        <p><strong>What all six missed:</strong> Retention as a thing to fix rather than a constraint to price around - and the objective itself may be the defect.</p>
+        <p><strong>Budget reallocation:</strong> $8,000 from content &rarr; $4,000 onboarding, $2,500 base monetisation, $1,500 brand defence and measurement.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    Marketing Council &middot; generated 16 September 2026<br>
+    Plan reviewed: Tallyhand &mdash; Q3 Growth Plan (fictional, written for this example)<br>
+    Full transcript: <code>sample-transcript.md</code>
+  </footer>
+
+</div>
+</body>
+</html>

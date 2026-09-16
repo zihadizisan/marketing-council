@@ -2,6 +2,12 @@
 
 Six advisors who cannot agree with each other tear apart your marketing plan, review each other blind, and hand you a one-word verdict.
 
+In use by the CEO and marketing team at **CHS Education Limited**, who run real marketing plans
+through it.
+
+See a complete run in [`examples/`](examples/) — the plan that went in, the full council
+transcript, and the scorecard that came out.
+
 Adapted from [Andrej Karpathy's LLM Council](https://x.com/karpathy/status/1962263486196867115) methodology and the [llm-council skill](https://github.com/tenfoldmarc/llm-council-skill), retargeted from open decisions to marketing plan evaluation.
 
 ---
@@ -99,6 +105,7 @@ references/peer-review.md         reviewer prompt, chairman prompt, standing rul
 assets/report-template.html       HTML scorecard template
 LICENSE                           MIT
 NOTICE                            what is derived, what is original
+examples/                         a complete worked run, input to verdict
 ```
 
 ## Design notes
