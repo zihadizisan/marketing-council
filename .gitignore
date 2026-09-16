@@ -1,0 +1,6 @@
+config.json
+*.log
+.DS_Store
+node_modules/
+marketing-council-report-*.html
+marketing-council-transcript-*.md
