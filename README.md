@@ -98,6 +98,7 @@ references/advisors.md            all six advisor prompts + anti-drift check
 references/peer-review.md         reviewer prompt, chairman prompt, standing rules
 assets/report-template.html       HTML scorecard template
 LICENSE                           MIT
+NOTICE                            what is derived, what is original
 ```
 
 ## Design notes
@@ -112,7 +113,7 @@ LICENSE                           MIT
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). Adapted from the MIT-licensed
+MIT — see [LICENSE](LICENSE), with derivation details in [NOTICE](NOTICE). Adapted from the MIT-licensed
 [llm-council skill](https://github.com/tenfoldmarc/llm-council-skill) and Andrej Karpathy's
 [LLM Council](https://x.com/karpathy/status/1962263486196867115) methodology; the marketing roster,
 intake gate, scoring, budget reallocation, measurement gate and verdict are additions here.

@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-ATTRIBUTION
-
-This project is an adaptation of the llm-council skill
-(https://github.com/tenfoldmarc/llm-council-skill), which is MIT licensed, and
-of the LLM Council methodology described by Andrej Karpathy
-(https://x.com/karpathy/status/1962263486196867115).
-
-The council structure, blind peer review and chairman synthesis derive from
-that prior work. The six-advisor marketing roster, the intake gate, the
-numeric scoring, the budget reallocation round, the measurement gate and the
-four-way verdict are additions specific to this project.
